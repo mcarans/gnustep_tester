@@ -29,4 +29,5 @@ MSYS2_ARG_CONV_EXCL="-DCMAKE_INSTALL_PREFIX=" \
 cmake --build .
 ctest -j 4 --output-on-failure -T test
 /ucrt64/bin/cmake.exe --install .
+export PKG_CONFIG_PATH="${MINGW_PREFIX}/lib/pkgconfig:${MINGW_PREFIX}/share/pkgconfig"
 pkg-config --modversion objc
