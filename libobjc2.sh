@@ -3,7 +3,7 @@ set -eo pipefail
 pacman -Syu --noconfirm
 pacman -S --noconfirm git pactoys
 pacboy -S --noconfirm cc-libs clang cmake lld robin-map
-pacboy -Rsc gcc-objc
+pacboy -R --noconfirm gcc-objc || true
 
 git clone https://github.com/gnustep/libobjc2.git
 cd libobjc2
