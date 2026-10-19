@@ -7,10 +7,14 @@ cd tools-make
 mkdir build
 cd build
 
+export PKG_CONFIG_PATH="${MINGW_PREFIX}/lib/pkgconfig:${MINGW_PREFIX}/share/pkgconfig"
+
 export CC="clang"
 export CXX="clang++"
 export CFLAGS="$CFLAGS -DSTRICT_APPLE_COMPATIBILITY=1 -I${MINGW_PREFIX}/include"
 export LDFLAGS="$LDFLAGS -fuse-ld=lld -lstdc++ -lgcc_s -L${MINGW_PREFIX}/lib"
+
+pkg-config --variable pc_path pkg-config
 
 ../configure \
 --with-library-combo=ng-gnu-gnu \
