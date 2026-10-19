@@ -1,7 +1,6 @@
 set -eo pipefail
 
 pacboy -S --noconfirm autotools
-pacboy -R --noconfirm gcc-objc || true
 
 git clone https://github.com/gnustep/tools-make.git
 cd tools-make

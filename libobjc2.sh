@@ -2,8 +2,7 @@ set -eo pipefail
 
 pacman -Syu --noconfirm
 pacman -S --noconfirm git pactoys
-pacboy -S --noconfirm cc-libs clang cmake lld robin-map
-pacboy -R --noconfirm gcc-objc || true
+pacboy -S --noconfirm cc-libs clang cmake lld libblocksruntime-swift robin-map
 
 git clone https://github.com/gnustep/libobjc2.git
 cd libobjc2
