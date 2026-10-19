@@ -12,8 +12,7 @@ cd build
 extra_config+=("-DCMAKE_BUILD_TYPE=Release")
 export LDFLAGS="$LDFLAGS -fuse-ld=lld -lstdc++ -lgcc_s"
 
-MSYS2_ARG_CONV_EXCL="-DCMAKE_INSTALL_PREFIX=" \
-"${MINGW_PREFIX}"/bin/cmake.exe \
+cmake \
     -GNinja \
     -DCMAKE_INSTALL_PREFIX="${MINGW_PREFIX}" \
     -DCMAKE_POLICY_VERSION_MINIMUM=3.5 \
@@ -28,6 +27,6 @@ MSYS2_ARG_CONV_EXCL="-DCMAKE_INSTALL_PREFIX=" \
 
 cmake --build .
 ctest -j 4 --output-on-failure -T test
-/ucrt64/bin/cmake.exe --install .
+cmake --install .
 cat ${MINGW_PREFIX}/lib/pkgconfig/libobjc.pc
 pkg-config --debug --modversion libobjc
