@@ -3,6 +3,7 @@ set -eo pipefail
 pacman -Syu --noconfirm
 pacman -S --noconfirm git pactoys
 pacboy -S --noconfirm cc-libs clang cmake lld robin-map
+pacboy -Rsc gcc-objc
 
 git clone https://github.com/gnustep/libobjc2.git
 cd libobjc2
@@ -20,10 +21,10 @@ MSYS2_ARG_CONV_EXCL="-DCMAKE_INSTALL_PREFIX=" \
     -DCMAKE_POLICY_VERSION_MINIMUM=3.5 \
     -DCMAKE_C_COMPILER="clang" \
     -DCMAKE_CXX_COMPILER="clang++" \
-    -DOLDABI_COMPAT=ON \
+    -DOLDABI_COMPAT=OFF \
     -DSTRICT_APPLE_COMPATIBILITY=ON \
     -DCMAKE_DLL_NAME_WITH_SOVERSION=ON \
-    -DTESTS=OFF \
+    -DTESTS=ON \
     "${extra_config[@]}" \
     ..
 
