@@ -2,6 +2,7 @@ name: Test GNUstep
 
 on:
   workflow_dispatch:
+  push:
 
 jobs:
   build:
