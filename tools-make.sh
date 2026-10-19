@@ -9,10 +9,8 @@ cd build
 
 export CC="clang"
 export CXX="clang++"
-export CFLAGS="$CFLAGS -DSTRICT_APPLE_COMPATIBILITY=1"
-export LDFLAGS="$LDFLAGS -fuse-ld=lld -lstdc++ -lgcc_s"
-
-pkg-config --variable pc_path pkg-config
+export CFLAGS="$CFLAGS -DSTRICT_APPLE_COMPATIBILITY=1 -I${MINGW_PREFIX}/include"
+export LDFLAGS="$LDFLAGS -fuse-ld=lld -lstdc++ -lgcc_s -L${MINGW_PREFIX}/lib"
 
 ../configure \
 --with-library-combo=ng-gnu-gnu \
