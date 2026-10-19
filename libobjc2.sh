@@ -28,5 +28,3 @@ cmake \
 cmake --build .
 ctest -j 4 --output-on-failure -T test
 cmake --install .
-cat ${MINGW_PREFIX}/lib/pkgconfig/libobjc.pc
-pkg-config --debug --modversion libobjc
