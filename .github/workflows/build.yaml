@@ -1,0 +1,43 @@
+name: Test build Oolite packages
+
+on:
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: windows-2025
+
+    steps:
+    - uses: actions/checkout@v6
+
+    - name: Set up MSYS2
+      uses: msys2/setup-msys2@v2
+      with:
+        update: true
+
+    - name: Build libobjc2
+      shell: msys2 {0}
+      env:
+        msystem: UCRT64
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      run: |
+        echo 'header = "Authorization: Bearer '$GITHUB_TOKEN'"' >> ~/.curlrc
+        echo 'header = "Accept: application/vnd.github+json"' >> ~/.curlrc
+        cp ~/.curlrc /c/Users/runneradmin/.curlrc 2>/dev/null || true
+        ./libobjc2.sh
+
+    - name: Build tools-make
+      shell: msys2 {0}
+      env:
+        msystem: UCRT64
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      run: |
+        ./tools-make.sh
+
+    - name: Build libs-base
+      shell: msys2 {0}
+      env:
+        msystem: UCRT64
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      run: |
+        ./libs-base.sh
