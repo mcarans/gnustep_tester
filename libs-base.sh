@@ -1,4 +1,4 @@
-set -euo pipefail
+set -eo pipefail
 
 pacboy -S --noconfirm curl gnutls icu libffi libiconv libxml2 libxslt zlib
 

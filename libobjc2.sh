@@ -1,4 +1,4 @@
-set -euo pipefail
+set -eo pipefail
 
 pacman -Syu --noconfirm
 pacman -S --noconfirm git pactoys
