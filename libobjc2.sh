@@ -29,3 +29,4 @@ MSYS2_ARG_CONV_EXCL="-DCMAKE_INSTALL_PREFIX=" \
 cmake --build .
 ctest -j 4 --output-on-failure -T test
 /ucrt64/bin/cmake.exe --install .
+pkg-config --modversion objc
