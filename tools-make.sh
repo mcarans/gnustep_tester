@@ -1,4 +1,4 @@
-set -o pipefail
+set -euo pipefail
 
 pacboy -S --noconfirm autotools
 

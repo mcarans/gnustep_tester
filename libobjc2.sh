@@ -1,8 +1,8 @@
-set -o pipefail
+set -euo pipefail
 
 pacman -Syu --noconfirm
 pacman -S --noconfirm git
-pacboy -S --noconfirm cc-libs clang lld cmake robin-map
+pacboy -S --noconfirm cc-libs clang cmake lld robin-map
 
 git clone https://github.com/gnustep/libobjc2.git
 cd libobjc2
@@ -14,7 +14,7 @@ extra_config+=("-DCMAKE_BUILD_TYPE=Release")
 export LDFLAGS="$LDFLAGS -fuse-ld=lld -lstdc++ -lgcc_s"
 
 MSYS2_ARG_CONV_EXCL="-DCMAKE_INSTALL_PREFIX=" \
-/ucrt64/bin/cmake.exe \
+cmake \
     -GNinja \
     -DCMAKE_INSTALL_PREFIX="/ucrt64" \
     -DCMAKE_POLICY_VERSION_MINIMUM=3.5 \
@@ -27,6 +27,6 @@ MSYS2_ARG_CONV_EXCL="-DCMAKE_INSTALL_PREFIX=" \
     "${extra_config[@]}" \
     ..
 
-/ucrt64/bin/cmake.exe --build .
+cmake --build .
 ctest -j 4 --output-on-failure -T test
-/ucrt64/bin/cmake.exe --install .
+cmake --install .

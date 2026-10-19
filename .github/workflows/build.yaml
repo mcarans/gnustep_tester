@@ -1,4 +1,4 @@
-name: Test build Oolite packages
+name: Test GNUstep
 
 on:
   workflow_dispatch:
