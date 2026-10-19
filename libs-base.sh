@@ -10,6 +10,6 @@ cd build
 export CC="clang"
 export CXX="clang++"
 
-../configure --prefix="/ucrt64"
+../configure --prefix="${MINGW_PREFIX}"
 make
 make check

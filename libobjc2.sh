@@ -10,13 +10,12 @@ mkdir build
 cd build
 
 extra_config+=("-DCMAKE_BUILD_TYPE=Release")
-
 export LDFLAGS="$LDFLAGS -fuse-ld=lld -lstdc++ -lgcc_s"
 
 MSYS2_ARG_CONV_EXCL="-DCMAKE_INSTALL_PREFIX=" \
-/ucrt64/bin/cmake.exe \
+"${MINGW_PREFIX}"/bin/cmake.exe \
     -GNinja \
-    -DCMAKE_INSTALL_PREFIX="/ucrt64" \
+    -DCMAKE_INSTALL_PREFIX="${MINGW_PREFIX}" \
     -DCMAKE_POLICY_VERSION_MINIMUM=3.5 \
     -DCMAKE_C_COMPILER="clang" \
     -DCMAKE_CXX_COMPILER="clang++" \

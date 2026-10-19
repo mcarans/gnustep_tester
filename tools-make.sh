@@ -12,14 +12,13 @@ export CXX="clang++"
 export CFLAGS="$CFLAGS -DSTRICT_APPLE_COMPATIBILITY=1"
 export LDFLAGS="$LDFLAGS -fuse-ld=lld -lstdc++ -lgcc_s"
 
-
 ../configure \
 --with-library-combo=ng-gnu-gnu \
 --with-runtime-abi=gnustep-2.2 \
---prefix="/ucrt64" \
---build="x86_64-w64-mingw32" \
---host="x86_64-w64-mingw32" \
---target="x86_64-w64-mingw32"
+--prefix="${MINGW_PREFIX}" \
+--build="${MINGW_CHOST}" \
+--host="${MINGW_CHOST}" \
+--target="${MINGW_CHOST}"
 
 make
 make install
