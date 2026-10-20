@@ -9,10 +9,8 @@ cd build
 
 export CC="clang"
 export CXX="clang++"
-export CFLAGS="$CFLAGS -DSTRICT_APPLE_COMPATIBILITY=1 -mllvm -enable-dfa-jump-thread=false"
+export CFLAGS="$CFLAGS -DSTRICT_APPLE_COMPATIBILITY=1"
 export LDFLAGS="$LDFLAGS -fuse-ld=lld -lstdc++ -lgcc_s"
-
-export CXXFLAGS="$CXXFLAGS -mllvm -enable-dfa-jump-thread=false"
 
 ../configure \
 --with-library-combo=ng-gnu-gnu \

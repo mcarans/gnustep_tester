@@ -9,4 +9,9 @@ cd libs-base
 
 ./configure --prefix="${MINGW_PREFIX}"
 make
-make check
+
+pacboy -S gdb ntldd
+cd Tests/base/headers/obj/
+ntldd -R NSString.exe
+gdb -ex "run" -ex "bt" -ex "quit" --args ./NSString.exe
+
