@@ -10,6 +10,8 @@ mkdir build
 cd build
 
 extra_config+=("-DCMAKE_BUILD_TYPE=Release")
+export CFLAGS="$CFLAGS -mllvm -enable-dfa-jump-thread=false"
+export CXXFLAGS="$CXXFLAGS -mllvm -enable-dfa-jump-thread=false"
 export LDFLAGS="$LDFLAGS -fuse-ld=lld -lstdc++ -lgcc_s"
 
 cmake \
