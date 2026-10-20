@@ -9,7 +9,8 @@ cd build
 
 export CC="clang"
 export CXX="clang++"
-export CFLAGS="$CFLAGS -DSTRICT_APPLE_COMPATIBILITY=1"
+export CFLAGS="$CFLAGS -g -DSTRICT_APPLE_COMPATIBILITY=1"
+export CXXFLAGS="$CXXFLAGS -g"
 export LDFLAGS="$LDFLAGS -fuse-ld=lld -lstdc++ -lgcc_s"
 
 ../configure \

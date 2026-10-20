@@ -9,9 +9,9 @@ cd libs-base
 
 ./configure --prefix="${MINGW_PREFIX}"
 make
-
+make install
 make check || true
-find . -name "NSString.exe"
+
 pacboy -S --noconfirm gdb ntldd
 cd Tests/base/headers/obj/
 ntldd -R NSString.exe

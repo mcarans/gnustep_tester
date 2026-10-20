@@ -9,7 +9,7 @@ cd libobjc2
 mkdir build
 cd build
 
-extra_config+=("-DCMAKE_BUILD_TYPE=Release")
+extra_config+=("-DCMAKE_BUILD_TYPE=RelWithDebInfo")
 export LDFLAGS="$LDFLAGS -fuse-ld=lld -lstdc++ -lgcc_s"
 
 cmake \
