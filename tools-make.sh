@@ -1,6 +1,6 @@
 set -eo pipefail
 
-pacboy -S --noconfirm autotools
+pacboy -S --noconfirm autotools clang22 lld22
 
 git clone https://github.com/gnustep/tools-make.git
 cd tools-make
@@ -12,6 +12,7 @@ export CXX="clang++"
 export CFLAGS="$CFLAGS -g -DSTRICT_APPLE_COMPATIBILITY=1"
 export CXXFLAGS="$CXXFLAGS -g"
 export LDFLAGS="$LDFLAGS -fuse-ld=lld -lstdc++ -lgcc_s"
+export PATH="${MINGW_PREFIX}/opt/llvm22/bin:${PATH}"
 
 ../configure \
 --with-library-combo=ng-gnu-gnu \

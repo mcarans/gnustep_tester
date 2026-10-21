@@ -7,6 +7,7 @@ cd libs-base
 
 . "${MINGW_PREFIX}/share/GNUstep/Makefiles/GNUstep.sh"
 
+export PATH="${MINGW_PREFIX}/opt/llvm22/bin:${PATH}"
 ./configure --prefix="${MINGW_PREFIX}"
 make
 make install
