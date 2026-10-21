@@ -2,7 +2,7 @@ set -eo pipefail
 
 pacman -Syu --noconfirm
 pacman -S --noconfirm git pactoys
-pacboy -S --noconfirm cc-libs clang cmake lld libblocksruntime-swift robin-map
+pacboy -S --noconfirm cc-libs clang22 cmake lld22 robin-map
 
 git clone https://github.com/gnustep/libobjc2.git
 cd libobjc2
@@ -11,6 +11,7 @@ cd build
 
 extra_config+=("-DCMAKE_BUILD_TYPE=RelWithDebInfo")
 export LDFLAGS="$LDFLAGS -fuse-ld=lld -lstdc++ -lgcc_s"
+export PATH="${MINGW_PREFIX}/opt/llvm22/bin:${PATH}"
 
 cmake \
     -GNinja \

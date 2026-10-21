@@ -1,6 +1,6 @@
 set -eo pipefail
 
-pacboy -S --noconfirm autotools clang22 lld22
+pacboy -S --noconfirm autotools
 
 git clone https://github.com/gnustep/tools-make.git
 cd tools-make
