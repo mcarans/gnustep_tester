@@ -13,7 +13,7 @@ make install
 make check || true
 
 pacboy -S --noconfirm gdb ntldd
-cd Tests/base/headers/obj/
-ntldd -R NSString.exe
-gdb -ex "run" -ex "bt" -ex "quit" --args ./NSString.exe
+cd Tests/base/GSXML/obj/
+ntldd -R basic.exe
+gdb -ex "run" -ex "bt" -ex "quit" --args ./basic.exe
 
