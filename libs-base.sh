@@ -1,6 +1,6 @@
 set -eo pipefail
 
-pacboy -S --noconfirm icu libxslt
+pacboy -S --noconfirm cc-libs gnutls icu libffi libiconv libxml2 libxslt zlib
 
 git clone https://github.com/gnustep/libs-base.git
 cd libs-base
