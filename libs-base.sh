@@ -1,6 +1,6 @@
 set -eo pipefail
 
-pacboy -S --noconfirm cc-libs gnutls icu libffi libiconv libxml2 libxslt zlib
+pacboy -S --noconfirm icu libxslt
 
 git clone https://github.com/gnustep/libs-base.git
 cd libs-base
@@ -14,7 +14,7 @@ make install
 make check || true
 
 pacboy -S --noconfirm gdb ntldd
-cd Tests/base/GSXML/obj/
-ntldd -R basic.exe
-gdb -ex "run" -ex "bt" -ex "quit" --args ./basic.exe
+cd Tests/base/GSXML/
+ntldd -R obj/basic.exe
+gdb -ex "run" -ex "bt" -ex "quit" --args obj/basic.exe
 
